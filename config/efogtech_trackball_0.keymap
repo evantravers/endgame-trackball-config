@@ -16,9 +16,10 @@
 
 #define TWIST_MULTIPLIER   1
 #define TWIST_DIVISOR      10
+#define TWIST_DIVISOR      1
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     3
+#define SCROLL_DIVISOR     12
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      4
