@@ -25,10 +25,10 @@
 			DECLARE_ENCODERS;
 			bindings = <
 			    // buttons
-			    &ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
-			    &mkp MCLK                 &cdch LAYER_SCROLL 0
-			    &mkp LCLK                 &mkp RCLK
-			    &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
+			    &BCK_FWD                  &mkp RCLK
+			    &mkp MCLK                 &ltmkp LAYER_SNIPE ENTER
+			    &mkp LCLK                 &CPY_PST
+			    &lt LAYER_SCROLL ESC      &ltm LAYER_DEVICE ESC
 
 			    // rotary encoders
 			    &kp C_VOL_UP              &kp LC(TAB)
@@ -104,6 +104,23 @@
 				&kp C_VOL_UP  &kp LG(TAB)
 				&kp C_VOL_DN  &kp LG(LS(TAB))
 		    >;
+		};
+	};
+
+	behaviors {
+		CPY_PST: tap-dance-2 {
+			compatible = "zmk,behavior-tap-dance";
+			display-name = "Back/Forward (tap/double-tap)";
+			#binding-cells = <0>;
+			tapping-term-ms = <300>;
+			bindings = <&kp LG(C)>, <&kp LG(V)>;
+		};
+		BCK_FWD: tap-dance-1 {
+			compatible = "zmk,behavior-tap-dance";
+			display-name = "Back/Forward (tap/double-tap)";
+			#binding-cells = <0>;
+			tapping-term-ms = <300>;
+			bindings = <&mkp MB4>, <&mkp MB5>;
 		};
 	};
 
