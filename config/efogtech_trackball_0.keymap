@@ -34,10 +34,10 @@
 			DECLARE_ENCODERS;
 			bindings = <
 				// buttons
-				&ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
-				&mkp MCLK                 &cdch LAYER_SCROLL 0
-				&mkp LCLK                 &mkp RCLK
-				&ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
+				&BCK_FWD                  &mkp RCLK
+				&mkp MCLK                 &ltmkp LAYER_SNIPE ENTER
+				&mkp LCLK                 &CPY_PST
+				&lt LAYER_SCROLL ESC      &ltm LAYER_DEVICE ESC
 
 				// rotary encoders
 				&kp C_VOL_UP              &kp LC(TAB)
@@ -117,21 +117,19 @@
 	};
 
 	behaviors {
-		cdch: click-double-click-hold {
-			compatible = "zmk,behavior-hold-tap";
-			display-name = "Copy/paste/layer (click/double-click/hold)";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <325>;
-			bindings = <&mo>, <&cdc>;
-		};
-
-		cdc: click-double-click {
+		CPY_PST: tap-dance-2 {
 			compatible = "zmk,behavior-tap-dance";
-			display-name = "Copy/paste (click/double-click)";
+			display-name = "Back/Forward (tap/double-tap)";
 			#binding-cells = <0>;
 			tapping-term-ms = <300>;
-			bindings = <&kp K_COPY>, <&kp K_PASTE>;
+			bindings = <&kp LG(C)>, <&kp LG(V)>;
+		};
+		BCK_FWD: tap-dance-1 {
+			compatible = "zmk,behavior-tap-dance";
+			display-name = "Back/Forward (tap/double-tap)";
+			#binding-cells = <0>;
+			tapping-term-ms = <300>;
+			bindings = <&mkp MB4>, <&mkp MB5>;
 		};
 	};
 
