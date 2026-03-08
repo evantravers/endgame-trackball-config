@@ -78,9 +78,9 @@
 			DECLARE_ENCODERS;
 			bindings = <
 			    &trans              &trans
-			    &trans              &scrlsens P2SM_INC 1
-			    &rrl 1              &scrlsens P2SM_DEC 1
-			    &sens P2SM_DEC 1    &sens P2SM_INC 1
+			    &trans              &trans
+			    &rrl 1              &trans
+			    &trans              &trans
 
 				&sens P2SM_DEC 1    &scrlsens P2SM_INC 1
 				&sens P2SM_INC 1    &scrlsens P2SM_DEC 1
